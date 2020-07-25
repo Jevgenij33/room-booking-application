@@ -1,15 +1,25 @@
 package com.roombookingapplication.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Table(name = "users")
+@Entity
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private String role;
+    @Column
     private String login;
+    @Column
     private String password;
 
     public Integer getId() {

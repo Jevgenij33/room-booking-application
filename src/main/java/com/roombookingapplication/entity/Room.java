@@ -1,14 +1,22 @@
 package com.roombookingapplication.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Table(name = "room")
+@Entity
 public class Room implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column
     private String roomName;
+    @Column
     private Integer capacity;
+    @Column
     private String description;
 
     public Integer getId() {

@@ -1,16 +1,27 @@
 package com.roombookingapplication.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Table(name = "user_booking")
+@Entity
 public class UserBooking implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @ManyToOne
+    @JoinColumn(name = "id_user")
     private Users idUser;
+    @ManyToOne
+    @JoinColumn(name = "id_room")
     private Room idRoom;
+    @Column
     private LocalDateTime startBooking;
+    @Column
     private LocalDateTime endBooking;
 
     public Integer getId() {
